@@ -35,7 +35,8 @@ writeBin(download$response$content, filename)
 # Load all accounts
 
 dt.Account <- read.xlsx(filename, sheet = 1, startRow = 8)
-# simple check for
+
+# simple check in case the data no longer starts at row 8 in the sheet
 if(names(dt.Account)[1] != "Account.Number") stop ("problem with format of first sheet in excel file") 
 
 # Are there any duplicate account numbers ?
@@ -82,7 +83,7 @@ dt.Activities <- subset(dt.Activities, Remote.Status == "Remote")
 table(dt.Activities$Status)
 
 # remove all "Surrendered"
-# Note: this will include 6 that are "Revoked" and 33 "Pendind"
+# Note: this will include 6 that are "Revoked" and 33 "Pending"
 
 dt.Activities <- subset(dt.Activities, Status != "Surrendered")
 
