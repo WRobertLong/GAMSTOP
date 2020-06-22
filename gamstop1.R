@@ -76,7 +76,6 @@ table(dt.Activities$Remote.Status)
 # only Ancillary, NonRemote and Remote 
 
 # retain only those with Remote status
-
 dt.Activities <- subset(dt.Activities, Remote.Status == "Remote")
 
 # identify all levels of Status
